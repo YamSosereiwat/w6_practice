@@ -33,7 +33,7 @@ enum CityWeather {
     minTemp: 10.0,
     maxTemp: 30.0,
     currentTemp: 12.2,
-    icon: Icons.cloud_outlined,
+    image: 'assets/ex4/cloudy.png',
     gradientColors: [Color(0xFF9C27B0), Color(0xFFE040FB)],
   ),
   paris(
@@ -41,7 +41,7 @@ enum CityWeather {
     minTemp: 10.0,
     maxTemp: 40.0,
     currentTemp: 22.2,
-    icon: Icons.wb_sunny_outlined,
+    image: 'assets/ex4/sunnyCloudy.png',
     gradientColors: [Color(0xFF26A69A), Color(0xFF66BB6A)],
   ),
   rome(
@@ -49,7 +49,7 @@ enum CityWeather {
     minTemp: 10.0,
     maxTemp: 40.0,
     currentTemp: 45.2,
-    icon: Icons.wb_sunny,
+    image: 'assets/ex4/sunny.png',
     gradientColors: [Color(0xFFEF5350), Color(0xFFEC407A)],
   ),
   toulouse(
@@ -57,7 +57,7 @@ enum CityWeather {
     minTemp: 10.0,
     maxTemp: 40.0,
     currentTemp: 45.2,
-    icon: Icons.cloud,
+    image: 'assets/ex4/veryCloudy.png',
     gradientColors: [Color(0xFFFFA726), Color(0xFFFF7043)],
   );
 
@@ -65,7 +65,7 @@ enum CityWeather {
   final double minTemp;
   final double maxTemp;
   final double currentTemp;
-  final IconData icon;
+  final String image;
   final List<Color> gradientColors;
 
   const CityWeather({
@@ -73,7 +73,7 @@ enum CityWeather {
     required this.minTemp,
     required this.maxTemp,
     required this.currentTemp,
-    required this.icon,
+    required this.image,
     required this.gradientColors,
   });
 }
@@ -113,14 +113,13 @@ class WeatherCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.cloud_outlined,
-                    color: Colors.black87,
-                    size: 32,
-                  ),
+                  child: Image.asset(
+                    cityWeather.image,
+                    height: 60,
+                  )
                 ),
                 const SizedBox(width: 15),
                 Column(
